@@ -29,7 +29,7 @@ def make_games():
             'name': fake.word()
         },
         'cover': {
-            'url': 'https://loremflickr.com/%s/%s/cook' % rand_ratio(),
+              'url': 'https://via.assets.so/game.png?id=1&q=95&w=360&h=360&fit=fill',
         }
     }
 
