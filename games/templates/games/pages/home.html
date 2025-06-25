@@ -3,9 +3,9 @@
 {% block title %} Home {% endblock title %}
 {% block content %}
 <div class="main-content main-content-list container">
-    {% include "partials/games_list.html" %}
-    {% include "partials/games_list.html" %}
-    {% include "partials/games_list.html" %}
-    {% include "partials/games_list.html" %}
+    {%for game in games%}
+        {% include "partials/games_list.html" %}
+    {% endfor %}
+   
 </div>
 {% endblock content %}

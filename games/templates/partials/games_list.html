@@ -1,11 +1,11 @@
 {% load static %}
 <div class="games games-list-item">
     <div class="games-cover">
-        <img src="{% static "/games/img/darkest-dungeon-capa.jpg" %}"  alt="darkest-dungeon-capa" border="0">
+        <img src="{{game.cover.url}}"  alt="darkest-dungeon-capa" border="0">
     </div>
 
     <div class="games-title-container">
-        <h2 class="games-title">Darkest Dungeon</h2>
+        <h2 class="games-title">{{game.title}}</h2>
     </div>
     <div class="games-author">
         <span>
