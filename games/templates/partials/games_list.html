@@ -10,11 +10,11 @@
     <div class="games-author">
         <span>
             <i class="fa-solid fa-circle-user"></i>
-            Ramon Gall
+            {{game.author.first_name}} {{game.author.last_name}}
         </span>
         <span>
             <i class="fa-solid fa-calendar-days"></i>
-            10/06/2025 às 15:35 a
+            {{game.created_at|date:"d/m/Y"}} às {{game.created_at|date:"H:i"}}
         </span>
         <a href="">
             <span>
@@ -45,10 +45,20 @@
             </div>
         </div>
     </div>
-    <footer class="recipe-footer">
-        <a class="recipe-read-more button button-dark button-full-width" href="game/3">
-            <i class="fas fa-eye"></i>
-            <span>ver mais...</span>
-        </a>
-    </footer>
+    {% if is_detail_page is not True %}
+        <footer class="recipe-footer">
+            <a class="recipe-read-more button button-dark button-full-width" href="{% url 'games-game' 3 %}">
+                <i class="fas fa-eye"></i>
+                <span>ver mais...</span>
+            </a>
+        </footer>
+    {% endif %}
+
+    {% if is_detail_page is True %}
+    
+        <div class="preparation-steps">
+            {{game.preparation_steps|linebreaksbr}}
+        </div>
+    
+    {% endif %}
 </div>

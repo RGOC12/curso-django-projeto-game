@@ -10,5 +10,6 @@ def home(request):
 
 def game(request,id):
     return render(request,'games/pages/game.html', context={
-        'game': make_games()
+        'game': make_games(),
+        'is_detail_page' : True
     })
