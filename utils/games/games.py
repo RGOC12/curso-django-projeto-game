@@ -26,11 +26,7 @@ def make_games():
             'name': fake.word()
         },
         'cover': {
-<<<<<<< HEAD
               'url': 'https://via.assets.so/game.png?id=1&q=95&w=840&h=600&fit=fill',
-=======
-              'url': 'https://via.assets.so/game.png?id=1&q=95&w=360&h=360&fit=fill',
->>>>>>> 93edd35 (Modificção no faker)
         }
     }
 
