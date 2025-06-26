@@ -1,11 +1,13 @@
 from django.shortcuts import render
 from django.http import HttpRequest
-from utils.games.games import make_games
+from .models import game
 
+
+games = game.objects.all().order_by('-id')
 
 def home(request):
     return render(request,'games/pages/home.html', context={
-        'games': [make_games() for _ in range(10)]
+        'games': games
     })
 
 def game(request,id):

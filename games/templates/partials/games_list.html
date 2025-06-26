@@ -10,44 +10,43 @@
     <div class="games-author">
         <span>
             <i class="fa-solid fa-circle-user"></i>
-            {{game.author.first_name}} {{game.author.last_name}}
+            {% if game.author.first_name %}
+                {{game.author.first_name}} {{game.author.last_name}}
+            {% else %}
+                {{game.author.last_name}}
+            {% endif %}
         </span>
         <span>
             <i class="fa-solid fa-calendar-days"></i>
-            {{game.created_at|date:"d/m/Y"}} às {{game.created_at|date:"H:i"}}
+            {{game.created_post|date:"d/m/Y"}} às {{game.created_post|date:"H:i"}}
         </span>
         <a href="">
             <span>
-
                 <i class="fa-solid fa-ghost"></i>
-                RPG
+                {{game.categori}}
             </span>
         </a>
     </div>
     <div class="games-content">
-        <p>Darkest Dungeon é um jogo gótico desafiante em turnos de RPG sobre os estresses psicológicos
-            vivenciados em
-            aventuras. Recrute, treine e lidere uma equipe de heróis imperfeitos através de florestas
-            corrompidas, labirintos
-            esquecidos, criptas arruinadas e além.</p>
+        <p>{{game.description}}</p>
     </div>
     <div class="games-meta-container">
         <div class="games-meta games-zerar">
             <h3 class="games-meta-title"><i class="fas fa-stopwatch"></i> Zerar</h3>
             <div class="games-meta-text">
-                147 horas
+                {{game.end_game}} horas
             </div>
         </div>
         <div class="games-meta games-nota">
             <h3 class="games-meta-title"><i class="fa-solid fa-circle-check"></i></i> Nota</h3>
             <div class="games-meta-text">
-                8/10
+                {{game.classification}}/10
             </div>
         </div>
     </div>
     {% if is_detail_page is not True %}
         <footer class="recipe-footer">
-            <a class="recipe-read-more button button-dark button-full-width" href="{% url 'games-game' 3 %}">
+            <a class="recipe-read-more button button-dark button-full-width" href="{{game.id}}">
                 <i class="fas fa-eye"></i>
                 <span>ver mais...</span>
             </a>
@@ -57,7 +56,7 @@
     {% if is_detail_page is True %}
     
         <div class="preparation-steps">
-            {{game.preparation_steps|linebreaksbr}}
+            {{game.review_game|linebreaksbr}}
         </div>
     
     {% endif %}
